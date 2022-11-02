@@ -19,20 +19,20 @@ public class CarRestController {
 	CarRepository carRepository;
 
 	// return list of cars
-	@GetMapping("/restCars")
+	@GetMapping("/rest/cars")
 	public Iterable<Car> getCars() {
 		// fetch and return cars
 		return carRepository.findAll();
 	}
 
 	// add new car
-	@PostMapping("restCars")
+	@PostMapping("rest/cars")
 	Car newCar(@RequestBody Car newCar) {
 		return carRepository.save(newCar);
 	}
 
 	// edit existing car information
-	@PutMapping("/restCars/{id}")
+	@PutMapping("/rest/cars/{id}")
 	Car editCar(@RequestBody Car editedCar, @PathVariable Long id) {
 		editedCar.setId(id);
 		return carRepository.save(editedCar);
@@ -40,7 +40,7 @@ public class CarRestController {
 	}
 
 	// delete car
-	@DeleteMapping("/restCars/{id}")
+	@DeleteMapping("/rest/cars/{id}")
 	void deleteCar(@PathVariable Long id) {
 		carRepository.deleteById(id);
 

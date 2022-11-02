@@ -39,7 +39,7 @@ public class CarController {
 	}
 
 	@PostMapping("/cancelCar")
-	public String cancelCargoBackToCarList() {
+	public String cancelGoBackToCarList() {
 		log.info("cancel...cancel..");
 		return "redirect:carList";
 	}
@@ -66,15 +66,22 @@ public class CarController {
 	
 	@GetMapping("/editCar/{id}")
 	public String editCar(@PathVariable("id") Long id, Model model) {
-		log.info("lets go to edit selected car..");
+		log.info("EDIT THE SELECT CAR, ID=" + id);
 		model.addAttribute("editCar", carRepository.findById(id));
 		model.addAttribute("omistajat", ownerRepository.findAll());
 		return "editCar";
 	}
 
 	@PostMapping("/saveEditedCar")
-	public String saveEditedCar(Car car) {
-		log.info("save the car");
+	public String saveEditedCar(@Valid Car car, BindingResult bindingResult, Model model) {
+		log.info("saveEditedCar:  " + car.toString());
+		if (bindingResult.hasErrors()) {
+			log.info("SOME ERROR HAPPENED");
+			model.addAttribute("editCar", car);
+			model.addAttribute("omistajat", ownerRepository.findAll());
+			log.info("car " + car);
+			return "editCar";
+		}
 		carRepository.save(car);
 		return "redirect:carlist";
 	}

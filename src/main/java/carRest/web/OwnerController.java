@@ -21,7 +21,7 @@ public class OwnerController {
 	@GetMapping("ownerList")
 	public String getOwners(Model model) {
 		model.addAttribute("owners", ownerRepository.findAll());
-		return "ownerList";
+		return "owners";
 	}
 
 	@GetMapping("addOwner")
