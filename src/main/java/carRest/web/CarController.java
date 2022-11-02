@@ -1,11 +1,15 @@
 package carRest.web;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -27,21 +31,39 @@ public class CarController {
 		return "mainPage";
 	}
 
-	@GetMapping("/carlist")
+	@GetMapping("/carList")
 	public String showCars(Model model) {
 		log.info("find all cars");
 		model.addAttribute("autot", carRepository.findAll());
 		return "cars";
 	}
 
+	@PostMapping("/cancelCar")
+	public String cancelCargoBackToCarList() {
+		log.info("cancel...cancel..");
+		return "redirect:carList";
+	}
 	@GetMapping("/addCar")
 	public String addCar(Model model) {
 		log.info("lets go to create new car..");
-		model.addAttribute("uusiAuto", new Car());
+		model.addAttribute("car", new Car());
 		model.addAttribute("omistajat", ownerRepository.findAll());
-		return "newCar";
+		return "addNewCar";
 	}
-
+	@PostMapping("/saveCar")
+	public String saveCar(@Valid Car car, BindingResult bindingResult, Model model) {
+		log.info("save the car " + car.toString());
+		if (bindingResult.hasErrors()) {
+			log.info("SOME ERROR HAPPENED");
+			model.addAttribute("car", car);
+			model.addAttribute("omistajat", ownerRepository.findAll());
+			return "addNewCar";
+		}
+		carRepository.save(car);
+		return "redirect:carlist";
+		
+	}	
+	
 	@GetMapping("/editCar/{id}")
 	public String editCar(@PathVariable("id") Long id, Model model) {
 		log.info("lets go to edit selected car..");
@@ -50,8 +72,8 @@ public class CarController {
 		return "editCar";
 	}
 
-	@PostMapping("saveCar")
-	public String saveCar(Car car) {
+	@PostMapping("/saveEditedCar")
+	public String saveEditedCar(Car car) {
 		log.info("save the car");
 		carRepository.save(car);
 		return "redirect:carlist";

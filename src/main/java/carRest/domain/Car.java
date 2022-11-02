@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Car {
@@ -16,7 +17,9 @@ public class Car {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	private String brand, model, color, registerNumber;
+	@Size(min=1, max=50)
+	private String brand;
+	private String model, color, registerNumber;
 	private double price;
 
 	@Column(name = "production_year")

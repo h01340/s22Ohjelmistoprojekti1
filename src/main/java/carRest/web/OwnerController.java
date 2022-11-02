@@ -18,10 +18,10 @@ public class OwnerController {
 	@Autowired
 	OwnerRepository ownerRepository;
 
-	@GetMapping("owners")
+	@GetMapping("ownerList")
 	public String getOwners(Model model) {
 		model.addAttribute("owners", ownerRepository.findAll());
-		return "owners";
+		return "ownerList";
 	}
 
 	@GetMapping("addOwner")
@@ -34,10 +34,11 @@ public class OwnerController {
 	public String saveOwner(@Valid Owner owner, BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
 			System.out.println("some error happened");
+			model.addAttribute("owner", owner);
 			return "addOwner";
 		}
 		ownerRepository.save(owner);
-		return "redirect:owners";
+		return "redirect:ownerList";
 
 	}
 
