@@ -7,14 +7,14 @@
 <body>
 	<h1>Insert new car information</h1>
 	<div>
-	<form action="#" th:object="${car}" th:action="@{saveCar}" method="post">
+
+	<form action="#" th:object="${car}" th:action="@{/saveCar}" method="post">
 	<!-- private String brand, model, color, registerNumber;
 	private int year, price; -->
-		  	<div>
+		<div>
 		  	<label>Brand</label>
 			<input type="text" th:field="*{brand}" />
 			<div th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}">Error</div>
-			
 			</div>
 			<div>
 		  	<label>Model</label>

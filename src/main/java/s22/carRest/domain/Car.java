@@ -1,4 +1,4 @@
-package carRest.domain;
+package s22.carRest.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +17,7 @@ public class Car {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Size(min=1, max=50, message="brand name must be between 1..50")
+	@Size(min=1, max=50)
 	private String brand;
 	private String model, color, registerNumber;
 	private double price;

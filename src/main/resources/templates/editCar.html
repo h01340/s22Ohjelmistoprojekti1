@@ -7,31 +7,32 @@
 <body>
 	<h1>Edit car</h1>
 	<div>
-	<form th:object="${editCar}" th:action="@{/saveCar}" action="#" method="post">
+	<form th:object="${editCar}" th:action="@{/saveEditedCar}" action="#" method="post">
 		  	<input type="hidden" id="id" th:field="*{id}" />
 		  	<div>
-		  	<label>Brand</label>
-			<input type="text" th:field="*{brand}" />
+		  		<label>Brand</label>
+				<input type="text" th:field="*{brand}" />
+				<div th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}">Error</div>
 			</div>
 			<div>
-		  	<label>Model</label>
-		  	<input type="text" th:field="*{model}" />
+		  		<label>Model</label>
+		  		<input type="text" th:field="*{model}" />
 			</div>
 			<div>
-		  	<label>Color</label>
-			<input type="text" th:field="*{color}" />
+		  		<label>Color</label>
+				<input type="text" th:field="*{color}" />
 			</div>
 			<div>
-		  	<label>Register number</label>
-			<input type="text" th:field="*{registerNumber}" />
+		  		<label>Register number</label>
+				<input type="text" th:field="*{registerNumber}" />
 			</div>
 			<div>		
-		  	<label>Year Of Construction</label>
-			<input type="number" th:field="*{year}" />
+		  		<label>Year Of Construction</label>
+				<input type="number" th:field="*{year}" />
 			</div>
 			<div>			
-		  	<label>Price</label>
-			<input type="number" th:field="*{price}" />			
+		  		<label>Price</label>
+				<input type="number" th:field="*{price}" />			
 			</div>
 			<br>
 		  	<label>Owner</label>
@@ -39,6 +40,7 @@
        			<option th:each="owner: ${omistajat}" th:value="${owner.id}" th:text="${owner.lastName}"></option>
     		</select>			
 			<input type="submit" value="Save"></input>
+			<input type="submit" value="Cancel" th:formaction="@{/cancelCar}" class="btn"></input>			
 		</form>
 	
 	</div>

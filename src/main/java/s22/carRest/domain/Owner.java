@@ -1,4 +1,4 @@
-package carRest.domain;
+package s22.carRest.domain;
 
 import java.util.List;
 
