@@ -53,18 +53,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
-<<<<<<< HEAD
-		</dependency>    
-		
-<!-- 
-
-		<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-        
-        -->			
-=======
 		</dependency>
 
 		<!--    	
@@ -73,7 +61,6 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>			
         -->
->>>>>>> 11a34b65183ab3aa6cb19e1f20921bb14dc6e059
 	</dependencies>
 
 	<build>
