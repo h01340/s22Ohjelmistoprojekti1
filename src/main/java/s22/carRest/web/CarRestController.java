@@ -1,6 +1,7 @@
-package carRest.web;
+package s22.carRest.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,8 +10,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import carRest.domain.Car;
-import carRest.domain.CarRepository;
+import s22.carRest.domain.Car;
+import s22.carRest.domain.CarRepository;
 
 @RestController
 public class CarRestController {
@@ -19,6 +20,7 @@ public class CarRestController {
 	CarRepository carRepository;
 
 	// return list of cars
+	@CrossOrigin
 	@GetMapping("/rest/cars")
 	public Iterable<Car> getCars() {
 		// fetch and return cars

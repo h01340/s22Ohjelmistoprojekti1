@@ -1,4 +1,4 @@
-package carRest.web;
+package s22.carRest.web;
 
 import javax.validation.Valid;
 
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import carRest.domain.Car;
-import carRest.domain.CarRepository;
-import carRest.domain.OwnerRepository;
+import s22.carRest.domain.Car;
+import s22.carRest.domain.CarRepository;
+import s22.carRest.domain.OwnerRepository;
 
 @Controller
 public class CarController {

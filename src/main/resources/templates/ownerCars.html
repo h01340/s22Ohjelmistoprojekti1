@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>carlist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1 th:text="'Cars of ' + ${owner.firstName} + ' ' +  ${owner.lastName}"/></h1>
+    <table>
+		<tr>
+		    <th>Brand</th>
+		    <th>Model</th>
+			<th>Year</th>
+ 		</tr>  
+    	<tr th:each = "car : ${ownerCars}">
+    		<td th:text="${car.brand}"></td>
+    		<td th:text="${car.model}"></td>
+    		<td th:text="${car.year}"></td>
+    	</tr>
+     </table>
+	<a href="/ownerList">Back to owner list page</a>
+	<br>
+     <a href="/main">Back to main page</a>
+</body>
+</html>

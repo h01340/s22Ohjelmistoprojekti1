@@ -1,4 +1,4 @@
-package carRest.domain;
+package s22.carRest.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

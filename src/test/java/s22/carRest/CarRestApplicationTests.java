@@ -1,10 +1,11 @@
-package s22.carDatabaseWeek3;
+package s22.carRest;
+
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CarDatabaseWeek3ApplicationTests {
+class CarRestApplicationTests {
 
 	@Test
 	void contextLoads() {

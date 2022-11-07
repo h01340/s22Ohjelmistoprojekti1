@@ -1,4 +1,4 @@
-package carRest;
+package s22.carRest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,10 +7,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import carRest.domain.Car;
-import carRest.domain.CarRepository;
-import carRest.domain.Owner;
-import carRest.domain.OwnerRepository;
+import s22.carRest.domain.Car;
+import s22.carRest.domain.CarRepository;
+import s22.carRest.domain.Owner;
+import s22.carRest.domain.OwnerRepository;
 
 /**
  * This application contains CRUD functionality and oneToMany/manyToOne
