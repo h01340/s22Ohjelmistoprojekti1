@@ -60,7 +60,8 @@ public class CarController {
 			return "addNewCar";
 		}
 		carRepository.save(car);
-		return "redirect:carlist";
+		log.info("CAR " + car + " IS SAVED TO DB");
+		return "redirect:carList";
 		
 	}	
 	
@@ -90,6 +91,6 @@ public class CarController {
 	public String deleteCar(@PathVariable("id") Long id, Model model) {
 		log.info("delete the selected car");
 		carRepository.deleteById(id);
-		return "redirect:/carlist";
+		return "redirect:/carList";
 	}
 }
