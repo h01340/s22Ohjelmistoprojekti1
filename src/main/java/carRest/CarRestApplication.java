@@ -13,9 +13,7 @@ import carRest.domain.Owner;
 import carRest.domain.OwnerRepository;
 
 /**
- * This application contains CRUD functionality and oneToMany/manyToOne
- * relationship. There is also validation implementation when adding new owner
- * information. And REST.
+ * This application is for Ohjelmistoprojekti1 demo purposes. .
  * 
  *
  * 
