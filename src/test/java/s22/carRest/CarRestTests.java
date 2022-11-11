@@ -27,14 +27,20 @@ public class CarRestTests {
 
 
 	@Test
-	public void checkResponseTypeJSON() throws Exception {
-		this.mockMvc.perform(get("/rest/cars")).andExpect(content().contentType(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk());
-	}
-
-	@Test
 	public void apiStatusIsOk() throws Exception {
 		this.mockMvc.perform(get("/rest/cars")).andExpect(status().isOk());
 	}
+	
+	@Test
+	public void checkResponseTypeJSON() throws Exception {
+		this.mockMvc.perform(get("/rest/cars")).andExpect(content().contentType(MediaType.APPLICATION_JSON));
+	}
+
+	//Example: this test case fails because in our case response is in JSON format
+	@Test
+	public void checkResponseTypeNDJSON() throws Exception {
+		this.mockMvc.perform(get("/rest/cars")).andExpect(content().contentType(MediaType.APPLICATION_NDJSON));
+	}
+
 
 }

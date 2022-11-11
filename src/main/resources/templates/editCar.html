@@ -7,7 +7,7 @@
 <body>
 	<h1>Edit car</h1>
 	<div>
-	<form th:object="${editCar}" th:action="@{/saveEditedCar}" action="#" method="post">
+	<form action="#" th:object="${car}" th:action="@{/saveEditedCar}" method="post">
 		  	<input type="hidden" id="id" th:field="*{id}" />
 		  	<div>
 		  		<label>Brand</label>

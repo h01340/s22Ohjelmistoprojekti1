@@ -2,8 +2,6 @@ package s22.carRest.web;
 
 import javax.validation.Valid;
 
-import javax.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -70,7 +67,7 @@ public class CarController {
 	@GetMapping("/editCar/{id}")
 	public String editCar(@PathVariable("id") Long id, Model model) {
 		log.info("EDIT THE SELECT CAR, ID=" + id);
-		model.addAttribute("editCar", carRepository.findById(id));
+		model.addAttribute("car", carRepository.findById(id));
 		model.addAttribute("omistajat", ownerRepository.findAll());
 		return "editCar";
 	}
@@ -80,14 +77,15 @@ public class CarController {
 		log.info("saveEditedCar:  " + car.toString());
 		if (bindingResult.hasErrors()) {
 			log.info("SOME ERROR HAPPENED");
-			model.addAttribute("editCar", car);
+			log.info("MORE INFO: " + bindingResult.getFieldError());
+			model.addAttribute("car", car);
 			model.addAttribute("omistajat", ownerRepository.findAll());
 			log.info("car " + car);
 			return "editCar";
 		}
 
 		carRepository.save(car);
-		return "redirect:carlist";
+		return "redirect:carList";
 	}
 
 	@GetMapping("delete/{id}")
