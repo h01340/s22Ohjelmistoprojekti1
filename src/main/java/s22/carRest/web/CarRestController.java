@@ -14,13 +14,16 @@ import s22.carRest.domain.Car;
 import s22.carRest.domain.CarRepository;
 
 @RestController
+//@CrossOrigin(origins = "http://localhost:3000/", maxAge = 3600)
 public class CarRestController {
 
 	@Autowired
 	CarRepository carRepository;
 
 	// return list of cars
-	@CrossOrigin
+	//crossorigin ei jostain syystä toimi
+	//@CrossOrigin
+	@CrossOrigin(origins = "http://localhost:3000/")
 	@GetMapping("/rest/cars")
 	public Iterable<Car> getCars() {
 		// fetch and return cars
@@ -45,7 +48,6 @@ public class CarRestController {
 	@DeleteMapping("/rest/cars/{id}")
 	void deleteCar(@PathVariable Long id) {
 		carRepository.deleteById(id);
-
 	}
 	
 	
