@@ -59,9 +59,7 @@ public class CarController {
 			return "addNewCar";
 		}
 		carRepository.save(car);
-		log.info("CAR " + car + " IS SAVED TO DB");
 		return "redirect:carList";
-		
 	}	
 	
 	@GetMapping("/editCar/{id}")
@@ -80,7 +78,6 @@ public class CarController {
 			log.info("MORE INFO: " + bindingResult.getFieldError());
 			model.addAttribute("car", car);
 			model.addAttribute("omistajat", ownerRepository.findAll());
-			log.info("car " + car);
 			return "editCar";
 		}
 

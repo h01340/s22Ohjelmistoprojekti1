@@ -6,9 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import s22.carRest.domain.Car;
 import s22.carRest.domain.CarRepository;
@@ -16,9 +13,15 @@ import s22.carRest.domain.Owner;
 import s22.carRest.domain.OwnerRepository;
 
 /**
- * This application is for Ohjelmistoprojekti1 demo purposes. .
+ * This application is for Ohjelmistoprojekti1 demo purposes. 
+ * Application "features" at the moment: 
+ * H2 database
+ * REST
+ * Validation
+ * Test cases
  * 
- *
+ * TODO: MariaDB, Heroku or something else, Security.
+ * 
  * 
  * @author h01340
  *
@@ -38,20 +41,12 @@ public class CarRestApplication implements CommandLineRunner {
 		SpringApplication.run(CarRestApplication.class, args);
 	}
 
-	/*
-	 * @Bean public WebMvcConfigurer corsConfigurer() { return new
-	 * WebMvcConfigurer() {
-	 * 
-	 * @Override public void addCorsMappings(CorsRegistry registry) {
-	 * registry.addMapping("/rest/cars").allowedOrigins("http://localhost:3000/"); }
-	 * }; }
-	 */
+
 	@Override
 	public void run(String... args) throws Exception {
 
-		
 		log.info("Luodaan muutama omistaja");
-		Owner owner1 = new Owner("Macy", "Minnie", "Tampere", "150578-223L", 1970);
+		Owner owner1 = new Owner("Macy", "Minnie", "Tampere", "150578-223L", 1978);
 		ownerRepository.save(owner1);
 		ownerRepository.save(new Owner("John", "Johnson", "Helsinki", "111177-134M", 1977));
 		ownerRepository.save(new Owner("Kia", "Watson", "Helsinki", "300378-194L", 1978));

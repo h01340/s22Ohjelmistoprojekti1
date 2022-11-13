@@ -1,7 +1,6 @@
 package s22.carRest.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,16 +13,12 @@ import s22.carRest.domain.Car;
 import s22.carRest.domain.CarRepository;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:3000/", maxAge = 3600)
 public class CarRestController {
 
 	@Autowired
 	CarRepository carRepository;
 
 	// return list of cars
-	//crossorigin ei jostain syystä toimi
-	//@CrossOrigin
-	@CrossOrigin(origins = "http://localhost:3000/")
 	@GetMapping("/rest/cars")
 	public Iterable<Car> getCars() {
 		// fetch and return cars

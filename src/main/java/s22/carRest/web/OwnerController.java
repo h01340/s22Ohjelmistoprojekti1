@@ -55,7 +55,6 @@ public class OwnerController {
 	@GetMapping("getOwnerCars/{id}")
 	public String getOwnerCars(@PathVariable("id") Long id, Model model) {
 		Optional<Owner> owner = ownerRepository.findById(id);
-		log.info("*********OWNER " + owner);
 		if (owner.isPresent()) {
 			model.addAttribute("ownerCars", carRepository.findByOwnerId(id));
 			model.addAttribute("owner", owner.get());

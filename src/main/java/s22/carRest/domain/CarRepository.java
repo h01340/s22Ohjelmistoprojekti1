@@ -8,5 +8,6 @@ public interface CarRepository extends CrudRepository<Car, Long> {
 	
 	List<Car> findByModel(String model);
 	List<Car> findByOwnerId(Long id);
+	List<Car> findByOwnerLastName(String lastname);
 
 }
