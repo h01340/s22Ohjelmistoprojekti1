@@ -66,6 +66,8 @@ public class CarRestApplication implements CommandLineRunner {
 			log.info(car.toString());
 			log.info("Auton omistaja on " + car.getOwner().getFirstName() + " " + car.getOwner().getLastName());
 		}
+		log.info("TESTATAAN findByModel");
+		log.info("GOLFIT " + carRepository.findByModel("Golf"));
 
 	}
 

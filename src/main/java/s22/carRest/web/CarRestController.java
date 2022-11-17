@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import s22.carRest.domain.Car;
@@ -24,6 +25,15 @@ public class CarRestController {
 		// fetch and return cars
 		return carRepository.findAll();
 	}
+	
+	// return specific cars by specific model
+	@GetMapping("/findByModel/{malli}")
+	public Iterable<Car> findByModel(@PathVariable (name="malli") String malli) {
+		System.out.println("/findByModel/{model} " + malli);
+		System.out.println("TARKISTA TÄMÄ " + carRepository.findByModel(malli));
+		//carRepository.findByModel("Golf")
+		return carRepository.findByModel("malli");
+	}	
 
 	// add new car
 	@PostMapping("rest/cars")
@@ -46,12 +56,6 @@ public class CarRestController {
 	}
 	
 	
-	// findByModel 
-	@GetMapping("/restFindCarByModel/{model}")
-	Iterable<Car> findCarByModel(@PathVariable("model") String model) {
-		System.out.println("restFindCarByModel metodissa");
-		return carRepository.findByModel(model);
 
-	}
 
 }
