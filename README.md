@@ -1,5 +1,4 @@
 # s22Ohjelmistoprojekti1
-At the moment this version contains CRUD, REST, H2, Validation
+At the moment this version contains CRUD, REST, MariaDB (local), Validation, Test cases
 TODO
-TEST
 SECURITY
