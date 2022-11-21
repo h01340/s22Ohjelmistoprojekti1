@@ -14,12 +14,14 @@ import javax.validation.constraints.Size;
 public class Car {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Size(min=1, max=50)
 	private String brand;
-	private String model, color, registerNumber;
+	private String model, color;
+	@Column(name = "register_number")
+	private String registerNumber;
 	private double price;
 
 	@Column(name = "production_year")
