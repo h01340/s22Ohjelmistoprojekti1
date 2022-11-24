@@ -1,5 +1,7 @@
 package s22.carRest.web;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -10,12 +12,15 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import s22.carRest.CarRestApplication;
 import s22.carRest.domain.Car;
 import s22.carRest.domain.CarRepository;
 
 @RestController
 @CrossOrigin(origins = "https://s22backend.herokuapp.com/", maxAge = 3600)
 public class CarRestController {
+	private static final Logger log = LoggerFactory.getLogger(CarRestController.class);
+	
 
 	@Autowired
 	CarRepository carRepository;
@@ -23,6 +28,7 @@ public class CarRestController {
 	// return list of cars
 	@GetMapping("/rest/cars")
 	public Iterable<Car> getCars() {
+		log.info("BACKEND REST: /rest/cars - getCars()");
 		// fetch and return cars
 		return carRepository.findAll();
 	}
@@ -30,8 +36,8 @@ public class CarRestController {
 	// return specific cars by specific model
 	@GetMapping("/findByModel/{malli}")
 	public Iterable<Car> findByModel(@PathVariable (name="malli") String malli) {
-		System.out.println("/findByModel/{model} " + malli);
-		System.out.println("TARKISTA TÄMÄ " + carRepository.findByModel(malli));
+		log.info("/findByModel/{model} " + malli);
+		log.info("TARKISTA TÄMÄ " + carRepository.findByModel(malli));
 		//carRepository.findByModel("Golf")
 		return carRepository.findByModel("malli");
 	}	
@@ -54,7 +60,7 @@ public class CarRestController {
 	@CrossOrigin
 	@DeleteMapping("/rest/cars/{id}")
 	void deleteCar(@PathVariable Long id) {
-		System.out.println("REST -> DELETE");
+		log.info("REST -> DELETE");
 		carRepository.deleteById(id);
 	}
 	
