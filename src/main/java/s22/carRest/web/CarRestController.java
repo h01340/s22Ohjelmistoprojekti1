@@ -17,7 +17,7 @@ import s22.carRest.domain.Car;
 import s22.carRest.domain.CarRepository;
 
 @RestController
-@CrossOrigin(origins = "https://s22backend.herokuapp.com/", maxAge = 3600)
+@CrossOrigin(origins = "https://s22frontend.herokuapp.com/", maxAge = 3600)
 public class CarRestController {
 	private static final Logger log = LoggerFactory.getLogger(CarRestController.class);
 	
@@ -27,6 +27,7 @@ public class CarRestController {
 
 	// return list of cars
 	@GetMapping("/rest/cars")
+	@CrossOrigin	
 	public Iterable<Car> getCars() {
 		log.info("BACKEND REST: /rest/cars - getCars()");
 		// fetch and return cars

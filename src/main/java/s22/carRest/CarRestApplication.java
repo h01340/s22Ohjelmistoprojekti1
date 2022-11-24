@@ -43,12 +43,12 @@ public class CarRestApplication implements CommandLineRunner {
 		SpringApplication.run(CarRestApplication.class, args);
 	}
 	
-//	 @Bean public WebMvcConfigurer corsConfigurer() { 
-//		 return new WebMvcConfigurer() {
-//			 @Override public void addCorsMappings(CorsRegistry registry) {
-//				 registry.addMapping("/rest/cars").allowedOrigins("http://localhost:3000/"); }
-//		 }; 
-//		 }
+	 @Bean public WebMvcConfigurer corsConfigurer() { 
+		 return new WebMvcConfigurer() {
+			 @Override public void addCorsMappings(CorsRegistry registry) {
+				 registry.addMapping("/rest/cars").allowedOrigins("https://s22frontend.herokuapp.com/"); }
+		 }; 
+		 }
 	
 	
 

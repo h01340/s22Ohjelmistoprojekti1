@@ -19,5 +19,7 @@ public class CorsConfig extends WebMvcAutoConfiguration implements WebMvcConfigu
 	                .exposedHeaders("Location")
 	                .allowCredentials(true);
 	    }
+	    
+	    
 	}
 
