@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import s22.carRest.domain.Car;
 import s22.carRest.domain.CarRepository;
-import s22.carRest.domain.Owner;
 import s22.carRest.domain.OwnerRepository;
 
 /**
@@ -40,6 +42,15 @@ public class CarRestApplication implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(CarRestApplication.class, args);
 	}
+	
+//	 @Bean public WebMvcConfigurer corsConfigurer() { 
+//		 return new WebMvcConfigurer() {
+//			 @Override public void addCorsMappings(CorsRegistry registry) {
+//				 registry.addMapping("/rest/cars").allowedOrigins("http://localhost:3000/"); }
+//		 }; 
+//		 }
+	
+	
 
 
 	@Override
