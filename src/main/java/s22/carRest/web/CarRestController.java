@@ -14,7 +14,7 @@ import s22.carRest.domain.Car;
 import s22.carRest.domain.CarRepository;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000/", maxAge = 3600)
+@CrossOrigin(origins = "https://s22backend.herokuapp.com/", maxAge = 3600)
 public class CarRestController {
 
 	@Autowired
