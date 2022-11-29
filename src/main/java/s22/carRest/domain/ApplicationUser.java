@@ -12,11 +12,18 @@ public class ApplicationUser {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false, updatable = false)
 	private Long id;
+	
+	@Column(name="first_name")
+	private String firstName; 
+	
+	@Column(name="last_name")
+	private String lastName;
+	
 	// Username with unique constraint
 	@Column(name = "username", nullable = false, unique = true)
 	private String username;
 
-	@Column(name = "password", nullable = false)
+	@Column(name = "password_hash", nullable = false)
 	private String passwordHash;
 
 	@Column(name = "role", nullable = false)
@@ -26,6 +33,17 @@ public class ApplicationUser {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	public ApplicationUser(String firstName, String lastName, String username, String passwordHash, String role) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.passwordHash = passwordHash;
+		this.role = role;
+	}
+
 
 	public ApplicationUser(String username, String passwordHash, String role) {
 		super();
@@ -66,12 +84,34 @@ public class ApplicationUser {
 		this.role = role;
 	}
 
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+
 	@Override
 	public String toString() {
-		return "ApplicationUser [id=" + id + ", username=" + username + ", passwordHash=" + passwordHash + ", role="
-				+ role + "]";
+		return "ApplicationUser [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", username="
+				+ username + ", passwordHash=" + passwordHash + ", role=" + role + "]";
 	}
-	
+
+
 	
 
 }
