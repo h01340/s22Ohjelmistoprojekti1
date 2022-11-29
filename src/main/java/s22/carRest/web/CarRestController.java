@@ -12,12 +12,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import s22.carRest.CarRestApplication;
 import s22.carRest.domain.Car;
 import s22.carRest.domain.CarRepository;
 
 @RestController
-@CrossOrigin(origins = "https://s22frontend.herokuapp.com/", maxAge = 3600)
+@CrossOrigin(origins = "https://localhost:3000/", maxAge = 3600)
 public class CarRestController {
 	private static final Logger log = LoggerFactory.getLogger(CarRestController.class);
 	
