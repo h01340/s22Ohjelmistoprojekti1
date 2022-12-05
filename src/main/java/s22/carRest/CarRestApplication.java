@@ -14,7 +14,6 @@ import s22.carRest.domain.ApplicationUser;
 import s22.carRest.domain.ApplicationUserRepository;
 import s22.carRest.domain.Car;
 import s22.carRest.domain.CarRepository;
-import s22.carRest.domain.Owner;
 import s22.carRest.domain.OwnerRepository;
 
 /**
@@ -82,7 +81,7 @@ public class CarRestApplication implements CommandLineRunner {
 //		//user, user & admin, admin
 //		applicationUserRepository.save(new ApplicationUser ("user", "$2a$10$gYhRVPCVkxonw4C6KbzBHOGfN3tR0cq8S51Ojct3iKEtP7fBCeZke", "USER"));
 //		applicationUserRepository.save(new ApplicationUser ("admin", "$2a$04$g6UsslKArS7jZrevnIpQIe5udQCOSriLtEz19jDRFUVPM74FT2rvG", "ADMIN"));
-		System.out.println("Print users");
+		log.info("Print users");
 		for (ApplicationUser user: applicationUserRepository.findAll()) {
 			System.out.println(user.toString());
 		}

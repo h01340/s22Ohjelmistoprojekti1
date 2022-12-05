@@ -127,16 +127,17 @@ public class Car {
 		this.owner = owner;
 	}
 
-	@Override
-	public String toString() {
-		return "Car [id=" + id + ", brand=" + brand + ", model=" + model + ", color=" + color + ", registerNumber="
-				+ registerNumber + ", year=" + year + ", price=" + price + ", owner=" + owner + "]";
-	}
-
 //	@Override
 //	public String toString() {
-//		return "Car [brand=" + brand + ", model=" + model + ", color=" + color + ", registerNumber=" + registerNumber
-//				+ ", year=" + year + ", price=" + price + "]";
+//		return "Car [id=" + id + ", brand=" + brand + ", model=" + model + ", color=" + color + ", registerNumber="
+//				+ registerNumber + ", year=" + year + ", price=" + price + ", owner=" + owner + "]";
 //	}
+
+	
+	@Override
+	public String toString() {
+		return "Car [brand=" + brand + ", model=" + model + ", color=" + color + ", registerNumber=" + registerNumber
+				+ ", year=" + year + ", price=" + price + "]";
+	}
 
 }

@@ -16,10 +16,9 @@ import s22.carRest.domain.Car;
 import s22.carRest.domain.CarRepository;
 
 @RestController
-@CrossOrigin(origins = "https://localhost:3000/", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:3000/", maxAge = 3600)
 public class CarRestController {
 	private static final Logger log = LoggerFactory.getLogger(CarRestController.class);
-	
 
 	@Autowired
 	CarRepository carRepository;
@@ -60,7 +59,7 @@ public class CarRestController {
 	@CrossOrigin
 	@DeleteMapping("/rest/cars/{id}")
 	void deleteCar(@PathVariable Long id) {
-		log.info("REST -> DELETE");
+		log.info("REST -> DELETE" + id);
 		carRepository.deleteById(id);
 	}
 	

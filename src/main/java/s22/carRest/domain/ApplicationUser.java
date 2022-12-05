@@ -107,9 +107,11 @@ public class ApplicationUser {
 
 	@Override
 	public String toString() {
-		return "ApplicationUser [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", username="
-				+ username + ", passwordHash=" + passwordHash + ", role=" + role + "]";
+		return "ApplicationUser [username=" + username + ", passwordHash=" + passwordHash + ", role=" + role + "]";
 	}
+
+
+
 
 
 	
