@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>carlist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Cars</h1>
+    <table>
+		<tr>
+		    <th>Brand</th>
+		    <th>Model</th>
+			<th>Year</th>
+		    <th>Owner last name</th>
+		</tr>  
+    	<tr th:each = "car : ${autot}">
+    		<td th:text="${car.brand}"></td>
+    		<td th:text="${car.model}"></td>
+    		<td th:text="${car.year}"></td>
+    		<td th:text="${car.owner.lastName}"></td>
+    		<td><a th:href="@{/editCar/{id}(id=${car.id})}">Muokkaa</a></td>
+ 			<td><a th:href="@{/delete/{id}(id=${car.id})}">Poista</a></td>
+<!-- 
+ 			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/editCar/{id}(id=${car.id})}">Muokkaa</a></td>
+ 			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${car.id})}">Poista</a></td>
+ 			 -->	
+    	</tr>
+     </table>
+     <a href="/addCar">Add car</a><br> 
+     <a href="/main">Back to main page</a>
+     <!-- 
+     <a sec:authorize="hasAuthority('ADMIN')" href="/addCar">Lisää auto</a>
+     -->
+</body>
+</html>
