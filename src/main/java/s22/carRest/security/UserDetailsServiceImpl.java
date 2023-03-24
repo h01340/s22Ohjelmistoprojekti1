@@ -30,6 +30,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		log.info("BACKEND: UserDetails loadUserByUsername " + username);
 		ApplicationUser user = userRepository.findByUsername(username)
 				.orElseThrow(() -> new UsernameNotFoundException("Username not found"));
+		
+		log.info("BACKEND: UserDetails loadUserByUsername " + username);
+		log.info("BACKEND: UserDetails user roles " + user.getRole());
+		
 		return new User(user.getUsername(), user.getPasswordHash(), AuthorityUtils.createAuthorityList(user.getRole()));
 	}
 

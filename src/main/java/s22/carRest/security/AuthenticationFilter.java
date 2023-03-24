@@ -42,6 +42,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 			// Verify token and get user
 			String user = jwtService.getAuthUser(request);
 			log.info("   BACKEND...: user =  " + user);
+			
 			// Authenticate
 			Authentication authentication = new UsernamePasswordAuthenticationToken(user, null,
 					java.util.Collections.emptyList());

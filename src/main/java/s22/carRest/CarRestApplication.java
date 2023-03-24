@@ -17,12 +17,8 @@ import s22.carRest.domain.CarRepository;
 import s22.carRest.domain.OwnerRepository;
 
 /**
- * This application is for Ohjelmistoprojekti1 demo purposes. 
- * Application "features" at the moment: 
- * H2 database
- * REST
- * Validation
- * Test cases
+ * This application is for Ohjelmistoprojekti1 demo purposes. Application
+ * "features" at the moment: H2 database REST Validation Test cases
  * 
  * TODO: MariaDB, Heroku or something else, Security.
  * 
@@ -39,24 +35,23 @@ public class CarRestApplication implements CommandLineRunner {
 	CarRepository carRepository;
 	@Autowired
 	OwnerRepository ownerRepository;
-	
+
 	@Autowired
-	ApplicationUserRepository applicationUserRepository; 
-	
+	ApplicationUserRepository applicationUserRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(CarRestApplication.class, args);
 	}
-	
-	 @Bean public WebMvcConfigurer corsConfigurer() { 
-		 return new WebMvcConfigurer() {
-			 @Override public void addCorsMappings(CorsRegistry registry) {
-				 registry.addMapping("*").allowedOrigins("https://s22frontend.herokuapp.com/"); }
-		 }; 
-		 }
-	
-	
 
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("*").allowedOrigins("https://s22frontend.herokuapp.com/");
+			}
+		};
+	}
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -82,7 +77,7 @@ public class CarRestApplication implements CommandLineRunner {
 //		applicationUserRepository.save(new ApplicationUser ("user", "$2a$10$gYhRVPCVkxonw4C6KbzBHOGfN3tR0cq8S51Ojct3iKEtP7fBCeZke", "USER"));
 //		applicationUserRepository.save(new ApplicationUser ("admin", "$2a$04$g6UsslKArS7jZrevnIpQIe5udQCOSriLtEz19jDRFUVPM74FT2rvG", "ADMIN"));
 		log.info("Print users");
-		for (ApplicationUser user: applicationUserRepository.findAll()) {
+		for (ApplicationUser user : applicationUserRepository.findAll()) {
 			System.out.println(user.toString());
 		}
 		log.info("Tulostetaan IDEn konsoliin autot omistajineen:");
@@ -94,6 +89,5 @@ public class CarRestApplication implements CommandLineRunner {
 		log.info("GOLFIT " + carRepository.findByModel("Golf"));
 
 	}
-
 
 }
